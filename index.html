@@ -1,0 +1,476 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Leon Marketing</title>
+<meta name="description" content="Leon Marketing helps med spas fill their appointment book with lead-gen ads, landing pages, and funnel optimization.">
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,500;0,9..144,600;1,9..144,500&family=Archivo:wght@400;500;600;700&display=swap');
+
+  :root {
+    --bg: #F6F6F4;
+    --surface: #ECEDE9;
+    --surface-2: #E1E2DB;
+    --ink: #1B1E24;
+    --ink-soft: #565B63;
+    --primary: #1E3A5C;
+    --primary-soft: #2F517A;
+    --accent: #1E7F72;
+    --accent-soft: #4FA89A;
+    --line: #DBDCD4;
+    --shadow: 0 1px 2px rgba(20, 24, 30, 0.06);
+  }
+
+  @media (prefers-color-scheme: dark) {
+    :root:not([data-theme="light"]) {
+      --bg: #10131A;
+      --surface: #171B23;
+      --surface-2: #1E232D;
+      --ink: #ECEDEA;
+      --ink-soft: #9BA0AA;
+      --primary: #7DA0C7;
+      --primary-soft: #6289B4;
+      --accent: #4FB3A3;
+      --accent-soft: #357F73;
+      --line: #262C36;
+      --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+    }
+  }
+
+  :root[data-theme="dark"] {
+    --bg: #10131A;
+    --surface: #171B23;
+    --surface-2: #1E232D;
+    --ink: #ECEDEA;
+    --ink-soft: #9BA0AA;
+    --primary: #7DA0C7;
+    --primary-soft: #6289B4;
+    --accent: #4FB3A3;
+    --accent-soft: #357F73;
+    --line: #262C36;
+    --shadow: 0 1px 2px rgba(0, 0, 0, 0.3);
+  }
+
+  * { box-sizing: border-box; }
+
+  html, body { margin: 0; padding: 0; }
+
+  body {
+    background: var(--bg);
+    color: var(--ink);
+    font-family: "Archivo", -apple-system, "Segoe UI", sans-serif;
+    line-height: 1.5;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  h1, h2, h3 {
+    font-family: "Fraunces", Georgia, serif;
+    color: var(--ink);
+    text-wrap: balance;
+    margin: 0;
+    font-weight: 500;
+  }
+
+  p { margin: 0; }
+
+  .wrap {
+    max-width: 1040px;
+    margin: 0 auto;
+    padding-inline: clamp(20px, 5vw, 48px);
+  }
+
+  .measure { max-width: 40em; }
+
+  a { color: inherit; }
+
+  /* ---- nav ---- */
+  nav.top {
+    padding-block: 20px;
+    border-bottom: 1px solid var(--line);
+  }
+  nav.top .wrap {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 16px;
+    flex-wrap: wrap;
+  }
+  .wordmark {
+    font-family: "Fraunces", Georgia, serif;
+    font-size: 1.15rem;
+    font-weight: 600;
+    letter-spacing: -0.01em;
+  }
+  .wordmark em { color: var(--accent); font-style: italic; }
+
+  .btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: "Archivo", sans-serif;
+    font-weight: 600;
+    font-size: 0.95rem;
+    padding: 12px 22px;
+    border-radius: 999px;
+    text-decoration: none;
+    border: 1px solid transparent;
+    transition: transform 0.15s ease, background 0.15s ease;
+    cursor: pointer;
+  }
+  .btn:hover { transform: translateY(-1px); }
+  .btn:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+  .btn-primary {
+    background: var(--primary);
+    color: var(--bg);
+  }
+  .btn-primary:hover { background: var(--primary-soft); }
+  .btn-ghost {
+    background: transparent;
+    border-color: var(--line);
+    color: var(--ink);
+    padding: 10px 20px;
+  }
+  .btn-small { padding: 9px 16px; font-size: 0.85rem; }
+
+  /* ---- hero ---- */
+  header.hero { padding-block: clamp(48px, 8vw, 88px) clamp(32px, 6vw, 56px); }
+  .hero-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: clamp(32px, 5vw, 64px);
+    align-items: center;
+  }
+  @media (max-width: 780px) {
+    .hero-grid { grid-template-columns: 1fr; }
+  }
+  .eyebrow {
+    font-size: 0.8rem;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 14px;
+    display: block;
+  }
+  h1.headline {
+    font-size: clamp(2.1rem, 4.4vw, 3.4rem);
+    line-height: 1.08;
+    letter-spacing: -0.01em;
+  }
+  h1.headline i { font-style: italic; color: var(--primary); }
+  .sub {
+    margin-top: 20px;
+    font-size: 1.08rem;
+    color: var(--ink-soft);
+    max-width: 34em;
+  }
+  .hero-ctas {
+    margin-top: 30px;
+    display: flex;
+    gap: 14px;
+    flex-wrap: wrap;
+    align-items: center;
+  }
+  .hero-note {
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+
+  /* ---- calendar visual ---- */
+  .calendar-card {
+    background: var(--surface);
+    border: 1px solid var(--line);
+    border-radius: 20px;
+    padding: 22px;
+    box-shadow: var(--shadow);
+  }
+  .calendar-head {
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    margin-bottom: 16px;
+  }
+  .calendar-head .month {
+    font-family: "Fraunces", serif;
+    font-size: 1.05rem;
+  }
+  .calendar-head .rate {
+    font-variant-numeric: tabular-nums;
+    font-size: 0.85rem;
+    font-weight: 600;
+    color: var(--primary);
+  }
+  .cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: 6px;
+  }
+  .cal-dow {
+    font-size: 0.65rem;
+    text-align: center;
+    color: var(--ink-soft);
+    letter-spacing: 0.04em;
+    padding-bottom: 4px;
+  }
+  .cal-cell {
+    aspect-ratio: 1;
+    border-radius: 7px;
+    background: var(--surface-2);
+    border: 1px solid var(--line);
+  }
+  .cal-cell.booked {
+    background: var(--primary);
+    border-color: var(--primary);
+    animation: fillIn 0.5s ease both;
+    animation-delay: var(--d, 0s);
+  }
+  .cal-cell.booked.accent {
+    background: var(--accent);
+    border-color: var(--accent);
+  }
+  @keyframes fillIn {
+    from { transform: scale(0.4); opacity: 0; }
+    to { transform: scale(1); opacity: 1; }
+  }
+  @media (prefers-reduced-motion: reduce) {
+    .cal-cell.booked { animation: none; }
+  }
+  .calendar-foot {
+    margin-top: 14px;
+    display: flex;
+    gap: 16px;
+    font-size: 0.75rem;
+    color: var(--ink-soft);
+  }
+  .legend-dot {
+    display: inline-block;
+    width: 8px; height: 8px;
+    border-radius: 2px;
+    margin-right: 6px;
+    vertical-align: middle;
+  }
+
+  /* ---- sections ---- */
+  section { padding-block: clamp(40px, 7vw, 72px); }
+  section.tinted { background: var(--surface); border-block: 1px solid var(--line); }
+
+  .section-head { max-width: 34em; margin-bottom: clamp(28px, 4vw, 44px); }
+  .section-head .eyebrow { margin-bottom: 10px; }
+  .section-head h2 { font-size: clamp(1.6rem, 3vw, 2.2rem); }
+  .section-head p { margin-top: 14px; color: var(--ink-soft); font-size: 1.02rem; }
+
+  /* services */
+  .services {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1px;
+    background: var(--line);
+    border: 1px solid var(--line);
+    border-radius: 16px;
+    overflow: hidden;
+  }
+  @media (max-width: 780px) {
+    .services { grid-template-columns: 1fr; }
+  }
+  .service {
+    background: var(--bg);
+    padding: 28px 26px;
+  }
+  section.tinted .service { background: var(--surface); }
+  .service .num {
+    font-family: "Fraunces", serif;
+    font-style: italic;
+    font-size: 0.95rem;
+    color: var(--accent);
+    display: block;
+    margin-bottom: 14px;
+  }
+  .service h3 { font-size: 1.15rem; margin-bottom: 10px; }
+  .service p { color: var(--ink-soft); font-size: 0.95rem; }
+
+  /* who it's for */
+  .fit {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: clamp(24px, 5vw, 56px);
+    align-items: start;
+  }
+  @media (max-width: 780px) { .fit { grid-template-columns: 1fr; } }
+  .fit p { color: var(--ink-soft); font-size: 1.02rem; }
+  .fit p + p { margin-top: 14px; }
+  .fit-list {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+  .fit-item {
+    display: flex;
+    gap: 12px;
+    padding: 14px 16px;
+    background: var(--bg);
+    border: 1px solid var(--line);
+    border-radius: 12px;
+    font-size: 0.92rem;
+  }
+  section.tinted .fit-item { background: var(--surface-2); }
+  .fit-item .mark { color: var(--primary); font-weight: 700; }
+
+  /* cta */
+  .cta-block {
+    background: var(--primary);
+    color: var(--bg);
+    border-radius: 24px;
+    padding: clamp(32px, 6vw, 56px);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 24px;
+    flex-wrap: wrap;
+  }
+  .cta-block h2 { color: var(--bg); font-size: clamp(1.5rem, 3vw, 2rem); max-width: 20em; }
+  .cta-block .btn-primary {
+    background: var(--bg);
+    color: var(--primary);
+  }
+  .cta-block .btn-primary:hover { background: var(--accent-soft); color: var(--ink); }
+
+  footer {
+    padding-block: 32px;
+    border-top: 1px solid var(--line);
+  }
+  footer .wrap {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    font-size: 0.85rem;
+    color: var(--ink-soft);
+  }
+</style>
+</head>
+<body>
+
+<nav class="top">
+  <div class="wrap">
+    <span class="wordmark">Leon <em>Marketing</em></span>
+    <a class="btn btn-primary btn-small" href="https://calendly.com/leonmrkting/30" target="_blank" rel="noopener">Book a Call</a>
+  </div>
+</nav>
+
+<header class="hero">
+  <div class="wrap hero-grid">
+    <div>
+      <span class="eyebrow">Growth partner for med spas</span>
+      <h1 class="headline">We don't just run ads.<br>We fill your <i>appointment book.</i></h1>
+      <p class="sub">Leon Marketing builds the ads, the landing page, and the follow-up that turns cold traffic into consultations on your calendar — so your front desk spends less time chasing leads and more time greeting clients.</p>
+      <div class="hero-ctas">
+        <a class="btn btn-primary" href="https://calendly.com/leonmrkting/30" target="_blank" rel="noopener">Book a 30-Minute Strategy Call</a>
+        <span class="hero-note">No obligation — just a look at your numbers.</span>
+      </div>
+    </div>
+    <div class="calendar-card" aria-hidden="true">
+      <div class="calendar-head">
+        <span class="month">March · Consults</span>
+        <span class="rate">22 booked</span>
+      </div>
+      <div class="cal-grid">
+        <span class="cal-dow">S</span><span class="cal-dow">M</span><span class="cal-dow">T</span><span class="cal-dow">W</span><span class="cal-dow">T</span><span class="cal-dow">F</span><span class="cal-dow">S</span>
+        <div class="cal-cell"></div>
+        <div class="cal-cell booked" style="--d:0.05s"></div>
+        <div class="cal-cell booked" style="--d:0.1s"></div>
+        <div class="cal-cell"></div>
+        <div class="cal-cell booked accent" style="--d:0.15s"></div>
+        <div class="cal-cell booked" style="--d:0.2s"></div>
+        <div class="cal-cell"></div>
+
+        <div class="cal-cell booked" style="--d:0.25s"></div>
+        <div class="cal-cell booked" style="--d:0.3s"></div>
+        <div class="cal-cell"></div>
+        <div class="cal-cell booked" style="--d:0.35s"></div>
+        <div class="cal-cell booked accent" style="--d:0.4s"></div>
+        <div class="cal-cell booked" style="--d:0.45s"></div>
+        <div class="cal-cell"></div>
+
+        <div class="cal-cell"></div>
+        <div class="cal-cell booked" style="--d:0.5s"></div>
+        <div class="cal-cell booked" style="--d:0.55s"></div>
+        <div class="cal-cell booked accent" style="--d:0.6s"></div>
+        <div class="cal-cell"></div>
+        <div class="cal-cell booked" style="--d:0.65s"></div>
+        <div class="cal-cell booked" style="--d:0.7s"></div>
+      </div>
+      <div class="calendar-foot">
+        <span><span class="legend-dot" style="background:var(--primary)"></span>Consult booked</span>
+        <span><span class="legend-dot" style="background:var(--accent)"></span>Treatment upsell</span>
+      </div>
+    </div>
+  </div>
+</header>
+
+<section class="tinted">
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">What we do</span>
+      <h2>Three moving parts. One number that matters.</h2>
+      <p>Every piece points at the same outcome: a filled slot on your schedule, not a vanity metric on a dashboard.</p>
+    </div>
+    <div class="services">
+      <div class="service">
+        <span class="num">01</span>
+        <h3>Lead-Gen Ads</h3>
+        <p>Meta and Google campaigns built around one goal — a booked consultation, not a like or a click.</p>
+      </div>
+      <div class="service">
+        <span class="num">02</span>
+        <h3>Landing Pages</h3>
+        <p>Pages designed to move a stranger straight to your calendar, with your offer front and center.</p>
+      </div>
+      <div class="service">
+        <span class="num">03</span>
+        <h3>Funnel Optimization</h3>
+        <p>Ongoing testing on offers, forms, and follow-up so your cost per booked appointment keeps dropping.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section>
+  <div class="wrap">
+    <div class="section-head">
+      <span class="eyebrow">Who this is for</span>
+      <h2>Built for med spas specifically — not marketing in general.</h2>
+    </div>
+    <div class="fit">
+      <div>
+        <p>Injectables, laser, memberships, and packages all sell differently than a typical local business — and consult-to-treatment math changes what a "good lead" even looks like.</p>
+        <p>We build campaigns around your actual offer calendar, including the seasonal swings that move demand — wedding season, holiday parties, and everything in between.</p>
+      </div>
+      <div class="fit-list">
+        <div class="fit-item"><span class="mark">→</span> You want more consults on the books, not just more form fills.</div>
+        <div class="fit-item"><span class="mark">→</span> You have capacity to take new clients but not the time to chase leads yourself.</div>
+        <div class="fit-item"><span class="mark">→</span> You'd rather pay for results than guess at ad spend on your own.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="tinted">
+  <div class="wrap">
+    <div class="cta-block">
+      <h2>Let's look at what's actually open on your calendar this month.</h2>
+      <a class="btn btn-primary" href="https://calendly.com/leonmrkting/30" target="_blank" rel="noopener">Book a 30-Minute Call</a>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="wrap">
+    <span>Leon Marketing</span>
+    <a href="https://calendly.com/leonmrkting/30" target="_blank" rel="noopener">calendly.com/leonmrkting/30</a>
+  </div>
+</footer>
+
+</body>
+</html>
